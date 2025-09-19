@@ -8,32 +8,30 @@
   </head>
   <body>
     <main>
-        <form id="characterForm" autocomplete="off">
-        <h1>Add a New Character</h1>
-        <div>
-          <label for="characterType">Character Type:</label>
-          <input type="radio" id="dragon" name="character" value="dragon" />
-          <label for="dragon">Dragon</label>
-          <input type="radio" id="human" name="character" value="human" />
-          <label for="human">Human</label>
-        </div>
-        <div>
-          <label for="characterName">Character Name:</label>
-          <input type="text" id="characterName" name="name" />
-        </div>
-        <div>
-          <label for="description">Description:</label>
-          <input type="text" id="description" name="description" />
-        </div>
-        <div>
-          <label for="characterImage">Character Image:</label>
-          <input
-            type="url"
-            id="imageUrl"
-            name="imageUrl"
-            placeholder="e.g., https://example.com/image.jpg"
-          />
-        </div>
+      <h1>Add a New Character</h1>
+      <form id="characterForm" autocomplete="off">
+        <label for="characterType">Character Type:</label>
+        <input type="radio" id="dragon" name="character" value="dragon" required/>
+        <label for="dragon">Dragon</label>
+        <input type="radio" id="human" name="character" value="human" required/>
+        <label for="human">Human</label> <br />
+
+        <label for="characterName">Character Name:</label>
+        <input type="text" id="characterName" name="name" required/> <br />
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required/> <br />
+
+        <label for="imgUrl">Image URL:</label re>
+        <input
+          type="text"
+          id="imgUrl"
+          name="imgUrl"
+          required
+          placeholder="./assets/images/dragon.png" 
+        />
+        <br />
+
         <button type="submit">Add Character</button>
       </form>
     </main>
