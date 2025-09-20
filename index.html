@@ -11,30 +11,44 @@
       <h1>Add a New Character</h1>
       <form id="characterForm" autocomplete="off">
         <label for="characterType">Character Type:</label>
-        <input type="radio" id="dragon" name="character" value="dragon" required/>
+        <input
+          type="radio"
+          id="dragon"
+          name="character"
+          value="dragon"
+          required
+        />
         <label for="dragon">Dragon</label>
-        <input type="radio" id="human" name="character" value="human" required/>
+        <input
+          type="radio"
+          id="human"
+          name="character"
+          value="human"
+          required
+        />
         <label for="human">Human</label> <br />
 
         <label for="characterName">Character Name:</label>
-        <input type="text" id="characterName" name="name" required/> <br />
+        <input type="text" id="characterName" name="name" required /> <br />
 
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required/> <br />
+        <input type="text" id="description" name="description" required />
+        <br />
 
-        <label for="imgUrl">Image URL:</label re>
+        <label for="imgUrl">Image URL:</label>
         <input
           type="text"
           id="imgUrl"
           name="imgUrl"
           required
-          placeholder="./assets/images/dragon.png" 
+          placeholder="./assets/images/dragon.png"
         />
         <br />
-
         <button type="submit">Add Character</button>
       </form>
     </main>
+    <div class="textInput"><!-- New div content--></div>
+    <div class="imageInput"><!-- New img content--></div>
     <script src="./assets/js/gallery.js"></script>
   </body>
 </html>
