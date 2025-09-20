@@ -10,8 +10,6 @@ const image = document.querySelector(".imageInput");
 const getSavedData = localStorage.getItem("userInput");
 const savedData = JSON.parse(getSavedData);
 
-
-
 // Listening for form submission
 characterForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -26,7 +24,7 @@ characterForm.addEventListener("submit", function (event) {
 
   localStorage.setItem("userInput", formDataString);
 
-  for (const [key, value] in formData) {
+  for (const [key, value] of formData) {
     if (key === "imgUrl") {
       const newImg = document.createElement("img");
       newImg.src = value;
