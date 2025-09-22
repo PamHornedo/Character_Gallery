@@ -12,14 +12,10 @@ let submissions = JSON.parse(localStorage.getItem("formSubmissions")) ?? [];
 // ... spread operator: combines separate array information into one array
 let arrOfSubmissions = [...submissions];
 
-console.log(arrOfSubmissions);
-
 // Creating div and image elements for values from localStorage
 if (submissions !== null) {
   arrOfSubmissions.forEach((sub) => {
-    console.log(sub);
     const { Character, Name, Description, imgUrl } = sub;
-
     // Creating div to hold all input elements of a single form submission
     const card = document.createElement("div");
 
@@ -66,17 +62,20 @@ characterForm.addEventListener("submit", function (event) {
   console.log(dataObject);
 
   // Creating div and image elements for inputted values
+  const card = document.createElement("div");
+
   for (const [key, value] of formData) {
     if (key === "imgUrl") {
       const newImg = document.createElement("img");
       newImg.src = value;
-      image.appendChild(newImg);
+      card.appendChild(newImg);
     } else {
       const newDiv = document.createElement("div");
       let content = `${key}: ${value}<br>`;
       newDiv.innerHTML = content;
-      text.appendChild(newDiv);
+      card.appendChild(newDiv);
     }
+    output.appendChild(card);
   }
 
   // Adding new entry to the array of submissions
