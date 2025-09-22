@@ -9,7 +9,7 @@ const output = document.querySelector(".output");
 // Getting information from localStorage
 let submissions = JSON.parse(localStorage.getItem("formSubmissions")) ?? [];
 // Creating an array to hold multiple submissions
-// ... spread operator: combines separate array information into one array
+// ... Spread operator: combines separate array information into one array
 let arrOfSubmissions = [...submissions];
 
 // Creating div and image elements for values from localStorage
@@ -50,6 +50,16 @@ if (submissions !== null) {
     output.appendChild(card);
   });
 }
+
+// Made cards clickable and relocate to html details page
+let characterCards = document.querySelectorAll(".card");
+characterCards.forEach((card) => {
+  card.addEventListener("click", function (event) {
+    event.preventDefault();
+    // Path is relative to html file
+    window.location.href = "detail.html";
+  });
+});
 
 // Listening for form submission
 characterForm.addEventListener("submit", function (event) {
