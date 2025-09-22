@@ -12,13 +12,18 @@ let submissions = JSON.parse(localStorage.getItem("formSubmissions")) ?? [];
 // ... Spread operator: combines separate array information into one array
 let arrOfSubmissions = [...submissions];
 
+let maxCardCount = 0;
+
 // Creating div and image elements for values from localStorage
 if (submissions !== null) {
-  arrOfSubmissions.forEach((sub) => {
+  arrOfSubmissions.forEach((sub, index) => {
     const { Character, Name, Description, imgUrl } = sub;
     // Creating div to hold all input elements of a single form submission
     const card = document.createElement("div");
     card.classList.add("card");
+    card.setAttribute("id", `${index}`);
+
+    maxCardCount = index;
 
     if (Character) {
       const newDiv = document.createElement("div");
@@ -56,6 +61,7 @@ let characterCards = document.querySelectorAll(".card");
 characterCards.forEach((card) => {
   card.addEventListener("click", function (event) {
     event.preventDefault();
+    sessionStorage.setItem("id", card.getAttribute("id"));
     // Path is relative to html file
     window.location.href = "detail.html";
   });
@@ -75,6 +81,10 @@ characterForm.addEventListener("submit", function (event) {
   // Creating div and image elements for inputted values
   const card = document.createElement("div");
   card.classList.add("card");
+  if (maxCardCount !== 0) {
+    maxCardCount += 1;
+  }
+  card.setAttribute("id", `${maxCardCount}`);
 
   for (const [key, value] of formData) {
     if (key === "imgUrl") {
@@ -88,6 +98,17 @@ characterForm.addEventListener("submit", function (event) {
       card.appendChild(newDiv);
     }
     output.appendChild(card);
+
+    // Made cards clickable and relocate to html details page
+    let characterCards = document.querySelectorAll(".card");
+    characterCards.forEach((card) => {
+      card.addEventListener("click", function (event) {
+        event.preventDefault();
+        sessionStorage.setItem("id", card.getAttribute("id"));
+        // Path is relative to html file
+        window.location.href = "detail.html";
+      });
+    });
   }
 
   // Adding new entry to the array of submissions
