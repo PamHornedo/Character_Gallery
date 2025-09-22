@@ -8,10 +8,6 @@ body {
   align-items: center;
 }
 
-img {
-  width: 25%;
-}
-
 main {
   color: goldenrod;
   background: darkred;
@@ -86,4 +82,36 @@ button {
 
 button:hover {
   transform: scale(1.01);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  margin-top: 3rem;
+  padding: 1rem;
+  max-width: 500px;
+  min-height: 300px;
+  background-color: darkred;
+  border: solid darkred;
+  border-radius: 20px;
+  align-items: center;
+  font-weight: bold;
+  color: goldenrod;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 20px goldenrod;
+}
+
+img {
+  width: 300px;
+}
+
+.output {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }

@@ -18,6 +18,7 @@ if (submissions !== null) {
     const { Character, Name, Description, imgUrl } = sub;
     // Creating div to hold all input elements of a single form submission
     const card = document.createElement("div");
+    card.classList.add("card");
 
     if (Character) {
       const newDiv = document.createElement("div");
