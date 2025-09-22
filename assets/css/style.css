@@ -1,4 +1,89 @@
+body {
+  background: black;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 img {
-width: 25%;
-height: auto;
+  width: 25%;
+}
+
+main {
+  color: goldenrod;
+  background: darkred;
+  border-radius: 12px;
+  padding: 32px 36px;
+  margin: 48px 0 0 0;
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid goldenrod;
+  font-size: 1em;
+  background: rgb(89, 0, 0);
+  color: white;
+}
+
+#radio {
+  display: flex;
+  align-items: center;
+}
+
+#dragon,
+#human {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+input[type="radio"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid goldenrod;
+  font-size: 1em;
+  background: rgb(89, 0, 0);
+  color: white;
+}
+
+button {
+  background: goldenrod;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  transform: scale(1.01);
 }

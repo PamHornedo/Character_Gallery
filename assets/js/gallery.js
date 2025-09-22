@@ -63,6 +63,7 @@ characterForm.addEventListener("submit", function (event) {
 
   // Creating div and image elements for inputted values
   const card = document.createElement("div");
+  card.classList.add("card");
 
   for (const [key, value] of formData) {
     if (key === "imgUrl") {

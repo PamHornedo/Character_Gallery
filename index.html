@@ -4,30 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Character Gallery</title>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <main>
       <h1>Add a New Character</h1>
       <form id="characterForm" autocomplete="off">
-        <label for="characterType">Character Type:</label>
-        <input
-          type="radio"
-          id="dragon"
-          name="Character"
-          value="dragon"
-          required
-        />
-        <label for="dragon">Dragon</label>
-        <input
-          type="radio"
-          id="human"
-          name="Character"
-          value="human"
-          required
-        />
-        <label for="human">Human</label> <br />
-
+        <div id="radio">
+          <label for="characterType" id="radio">Character Type:</label>
+          <div id="dragonDiv">
+            <input
+              type="radio"
+              id="dragon"
+              name="Character"
+              value="dragon"
+              required
+            />
+            <label for="dragon">Dragon</label>
+          </div>
+          <div id="humanDiv">
+            <input
+              type="radio"
+              id="human"
+              name="Character"
+              value="human"
+              required
+            />
+            <label for="human">Human</label> <br />
+          </div>
+        </div>
         <label for="characterName">Character Name:</label>
         <input type="text" id="characterName" name="Name" required /> <br />
 
