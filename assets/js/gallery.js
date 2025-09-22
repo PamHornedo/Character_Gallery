@@ -4,26 +4,54 @@ const characterType = document.getElementsByName("character");
 const nameInput = document.getElementById("characterName");
 const characterDescription = document.getElementById("description");
 const characterImage = document.getElementById("imgUrl");
-const text = document.querySelector(".textInput");
-const image = document.querySelector(".imageInput");
+const output = document.querySelector(".output");
 
 // Getting information from localStorage
-const getSavedData = localStorage.getItem("userInput");
-const savedData = JSON.parse(getSavedData);
+let submissions = JSON.parse(localStorage.getItem("formSubmissions")) ?? [];
+// Creating an array to hold multiple submissions
+// ... spread operator: combines separate array information into one array
+let arrOfSubmissions = [...submissions];
+
+console.log(arrOfSubmissions);
 
 // Creating div and image elements for values from localStorage
-for (const key in savedData) {
-  let value = savedData[key];
-  if (key === "imgUrl") {
-    const newImg = document.createElement("img");
-    newImg.src = value;
-    image.appendChild(newImg);
-  } else {
-    const newDiv = document.createElement("div");
-    let content = `${key}: ${value}<br>`;
-    newDiv.innerHTML = content;
-    text.appendChild(newDiv);
-  }
+if (submissions !== null) {
+  arrOfSubmissions.forEach((sub) => {
+    console.log(sub);
+    const { Character, Name, Description, imgUrl } = sub;
+
+    // Creating div to hold all input elements of a single form submission
+    const card = document.createElement("div");
+
+    if (Character) {
+      const newDiv = document.createElement("div");
+      let content = `Character: ${Character}<br>`;
+      newDiv.innerHTML = content;
+      card.appendChild(newDiv);
+    }
+
+    if (Name) {
+      const newDiv = document.createElement("div");
+      let content = `Name: ${Name}<br>`;
+      newDiv.innerHTML = content;
+      card.appendChild(newDiv);
+    }
+
+    if (Description) {
+      const newDiv = document.createElement("div");
+      let content = `Description: ${Description}<br>`;
+      newDiv.innerHTML = content;
+      card.appendChild(newDiv);
+    }
+
+    if (imgUrl) {
+      const newImg = document.createElement("img");
+      newImg.src = imgUrl;
+      card.appendChild(newImg);
+    }
+    // Appending character cards to output div
+    output.appendChild(card);
+  });
 }
 
 // Listening for form submission
@@ -36,11 +64,6 @@ characterForm.addEventListener("submit", function (event) {
   const formData = new FormData(form);
   const dataObject = Object.fromEntries(formData.entries());
   console.log(dataObject);
-
-  // Turning objects into string and putting into localStorage
-  const formDataString = JSON.stringify(dataObject);
-
-  localStorage.setItem("userInput", formDataString);
 
   // Creating div and image elements for inputted values
   for (const [key, value] of formData) {
@@ -55,4 +78,13 @@ characterForm.addEventListener("submit", function (event) {
       text.appendChild(newDiv);
     }
   }
+
+  // Adding new entry to the array of submissions
+  arrOfSubmissions.push(dataObject);
+
+  // Turning objects into string and putting into localStorage
+  localStorage.setItem("formSubmissions", JSON.stringify(arrOfSubmissions));
+
+  // Resets form fields after submission
+  form.reset();
 });
